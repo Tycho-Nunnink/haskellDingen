@@ -1,3 +1,4 @@
 # hakskell is cool
-
-bim bam boem
+bubble.hs is bubblesort
+merge.hs is mergesort
+polish.hs is een simpele polish calculator
