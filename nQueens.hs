@@ -1,19 +1,21 @@
 import System.Environment
 import Data.List (permutations)
 
-nQueens :: Int -> [[Int]]
+type Board = [Int]
+
+nQueens :: Int -> [Board]
 nQueens n = filter checkBoard . permutations . take n $ [0..]
-    where checkBoard :: [Int] -> Bool
+    where checkBoard :: Board -> Bool
           checkBoard [_] = True
           checkBoard (x:xs) = checkRow x 1 xs && checkBoard xs
           
-          checkRow :: Int -> Int -> [Int] -> Bool
+          checkRow :: Int -> Int -> Board -> Bool
           checkRow _ _ [] = True
           checkRow n offset (x:xs) = x /= n - offset
                                   && x /= n + offset
                                   && checkRow n (offset + 1) xs
 
-showQueens :: Int -> [Int] -> String
+showQueens :: Int -> Board -> String
 showQueens _ [] = ""
 showQueens size (x:xs) = replicate x '-'
                       ++ "Q"
