@@ -1,6 +1,4 @@
 import System.Environment
-import Data.List (permutations)
-import Control.Monad (guard)
 
 type Board = [Int]
 
