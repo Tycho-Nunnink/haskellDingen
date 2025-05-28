@@ -25,5 +25,5 @@ showQueens size (x:xs) = (concat . replicate x) "- "
 main = do
     (arg:_) <- getArgs
     let n = read arg :: Int
-    mapM (putStrLn . showQueens n) . nQueens $ n
+    mapM (\(x, b) -> print x >> (putStrLn . showQueens n $ b)) . zip [1..] . nQueens $ n
 
